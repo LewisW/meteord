@@ -7,7 +7,8 @@ BUNDLE_DIR=/tmp/bundle-dir
 # this fixes that
 cp -R /app $COPIED_APP_PATH
 cd $COPIED_APP_PATH
-chmod 777 $COPIED_APP_PATH
+chown -R meteor:meteor $COPIED_APP_PATH
+ls -al $COPIED_APP_PATH
 
 useradd -m meteor
 
