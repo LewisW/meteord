@@ -3,14 +3,14 @@ set -e
 COPIED_APP_PATH=/copied-app
 BUNDLE_DIR=/tmp/bundle-dir
 
+useradd -m meteor
+
 # sometimes, directly copied folder cause some wierd issues
 # this fixes that
 cp -R /app $COPIED_APP_PATH
 cd $COPIED_APP_PATH
 chown -R meteor:meteor $COPIED_APP_PATH
 ls -al $COPIED_APP_PATH
-
-useradd -m meteor
 
 su meteor -c "meteor build --directory $BUNDLE_DIR --server=http://localhost:3000"
 
